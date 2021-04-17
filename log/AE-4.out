@@ -1,0 +1,59 @@
+====================================================
+====================================================
+HellO!
+2021-04-06 23:36:58.334112: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-04-06 23:37:06.874057: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-06 23:37:06.875990: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2021-04-06 23:37:06.876069: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-04-06 23:37:06.876157: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: gra1151
+2021-04-06 23:37:06.876220: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: gra1151
+2021-04-06 23:37:06.876326: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:200] libcuda reported version is: Not found: was unable to find libcuda.so DSO loaded into this program
+2021-04-06 23:37:06.876429: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:204] kernel reported version is: 460.32.3
+2021-04-06 23:37:06.877132: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-06 23:37:06.877298: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+Model: "model_3"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_1 (InputLayer)            [(None, 200)]        0                                            
+__________________________________________________________________________________________________
+embedding (Embedding)           (None, 200, 64)      64000       input_1[0][0]                    
+__________________________________________________________________________________________________
+bidirectional (Bidirectional)   (None, 200, 1000)    2260000     embedding[0][0]                  
+__________________________________________________________________________________________________
+bidirectional_1 (Bidirectional) (None, 1000)         6004000     bidirectional[0][0]              
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 435)          435435      bidirectional_1[0][0]            
+__________________________________________________________________________________________________
+z_mean (Dense)                  (None, 200)          87200       dense_1[0][0]                    
+__________________________________________________________________________________________________
+z_log_var (Dense)               (None, 200)          87200       dense_1[0][0]                    
+__________________________________________________________________________________________________
+lambda (Lambda)                 (None, 200)          0           z_mean[0][0]                     
+                                                                 z_log_var[0][0]                  
+__________________________________________________________________________________________________
+repeat_vector_1 (RepeatVector)  (None, 200, 200)     0           lambda[0][0]                     
+__________________________________________________________________________________________________
+dec_lstm_1 (LSTM)               (None, 200, 500)     1402000     repeat_vector_1[0][0]            
+__________________________________________________________________________________________________
+dec_lstm_2 (LSTM)               (None, 200, 500)     2002000     dec_lstm_1[0][0]                 
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 100)          20100       lambda[0][0]                     
+__________________________________________________________________________________________________
+decoded_mean (TimeDistributed)  (None, 200, 1000)    501000      dec_lstm_2[0][0]                 
+__________________________________________________________________________________________________
+pred (Dense)                    (None, 1)            101         dense_3[0][0]                    
+==================================================================================================
+Total params: 12,863,036
+Trainable params: 12,863,036
+Non-trainable params: 0
+__________________________________________________________________________________________________
+None
+Traceback (most recent call last):
+  File "./test_model.py", line 18, in <module>
+    encoder = reconstructed_model.get_layer("dense_2")
+  File "/home/mahtabf/ENV/lib/python3.7/site-packages/tensorflow/python/keras/engine/training.py", line 2423, in get_layer
+    raise ValueError('No such layer: ' + name + '.')
+ValueError: No such layer: dense_2.
+BYE!
