@@ -1,7 +1,7 @@
 # Adversarial-Attacks-on-Language-Models-Using-Text-GAN
 
 The autoencoder code is inspired from: http://alexadam.ca/ml/2017/05/05/keras-vae.html<br />
-For implementing soem parts of GAN, https://github.com/roatienza/Deep-Learning-Experiments/blob/master/Experiments/Tensorflow/GAN/dcgan_mnist.py, and https://towardsdatascience.com/writing-your-first-generative-adversarial-network-with-keras-2d16fd8d4889 helped us.<br />
+For implementing some parts of GAN, we used https://github.com/roatienza/Deep-Learning-Experiments/blob/master/Experiments/Tensorflow/GAN/dcgan_mnist.py, and https://towardsdatascience.com/writing-your-first-generative-adversarial-network-with-keras-2d16fd8d4889.<br />
 
 ## References:
 [1]    Martin Arjovsky, Soumith Chintala, and L ́eon Bottou.Wasserstein GAN. 2017. arXiv:1701.07875 [stat.ML].<br />
