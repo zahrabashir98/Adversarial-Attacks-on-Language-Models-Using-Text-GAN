@@ -2,8 +2,8 @@
 
 The autoencoder code is inspired from: http://alexadam.ca/ml/2017/05/05/keras-vae.html
 
-References
-[1]    Martin Arjovsky, Soumith Chintala, and L ́eon Bottou.Wasserstein GAN. 2017. arXiv:1701.07875 [stat.ML].
+# References:
+[1]    Martin Arjovsky, Soumith Chintala, and L ́eon Bottou.Wasserstein GAN. 2017. arXiv:1701.07875 [stat.ML].<br />
 [2]    Corinna Cortes and Vladimir Vapnik. “Support-vector networks”. In:Machine Learning20.3(Sept. 1995), pp. 273–297.issn: 1573-0565.doi:10.1007/BF00994018.url:https://doi.org/10.1007/BF00994018.
 [3]    David Donahue and Anna Rumshisky.Adversarial  Text  Generation  Without  ReinforcementLearning. 2019. arXiv:1810.06640 [cs.CL].
 [4]    Ian J. Goodfellow, Jonathon Shlens, and Christian Szegedy.Explaining and Harnessing Ad-versarial Examples. 2015. arXiv:1412.6572 [stat.ML].
